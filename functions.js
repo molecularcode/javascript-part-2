@@ -16,15 +16,15 @@ function length(str1, str2) {
 //console.log(sort("Alex", "Eric"));
 
 var stringArray = ['Blue', 'Humpback', 'Beluga'];
-console.log('Sorted:', stringArray.sort(length));
+//console.log('Sorted:', stringArray.sort(length));
 
 
 // 2. Create an array of objects (don’t need to use new here, just regular object literals). These objects will contain a name and email property. Then, run some code that will sort your array by the longest name. Then, run some code that will sort your array by e-mail address in alphabetical order.
 
 // create objects
 var obj1 = {
-    name: "Albert",
-    email: "albert@a.com",
+    name: "Alberto",
+    email: "alberto@a.com",
 };
 var obj2 = {
     name: "George",
@@ -39,11 +39,11 @@ var obj3 = {
 var objArray = [obj1, obj2, obj3];
 
 // sort by string length
-function length(obj1, obj2) {
-  if (obj1.length < obj2.length) { // sort by string length
+function strLength(obj1, obj2) {
+  if (obj1.email.length < obj2.email.length) { // sort by string length
     return -1;
   }
-  if (obj2.length < obj1.length) {
+  if (obj2.email.length < obj1.email.length) {
     return 1;
   }
   // obj1 length must be equal to obj2 length therefore 
@@ -51,15 +51,16 @@ function length(obj1, obj2) {
 }
 
 // sort albhabetically
-function aplha(obj1, obj2) {
-  if (obj1 < obj2) {
+function strAlpha(obj1, obj2) {
+  if (obj1.name < obj2.name) {
     return -1;
   }
-  if (obj2 < obj1) {
+  if (obj2.name < obj1.name) {
     return 1;
   }
   // obj1 must be equal to obj2 therefore 
   return 0;
 }
 
-console.log('Names sorted by string length:', stringArray.sort(length));
+console.log('Names sorted by string length (shortest to longest): ', (objArray).sort(strLength));
+console.log('Emails sorted alphabetically: ', objArray.sort(strAlpha));
