@@ -100,4 +100,32 @@ function numSquare(numArray) {
     return numSquared;
 }
 
-console.log(numSquare(numObjArray));
+//console.log(numSquare(numObjArray));
+
+
+// 5. In a previous workshop, you had to create a function that took two numbers and an operation (add, sub, mult, …) and returned the result of the operation on the two numbers. Here we are going to do the same but at a higher order. Create a function called operationMaker that takes only a string called operation as argument. This string could be “add”, “subtract”, “mult” or “div”. Your function will return a function that will take two numbers and return the result of running operation on these numbers.
+
+function operationMaker(operation) {
+    return function (num1, num2) {
+        if(operation === "add") {
+            return num1 + num2;
+        }
+        else if(operation === "subtract") {
+            return num1 - num2;
+        }
+        else if(operation === "mult") {
+            return num1 * num2;
+        }
+        else if(operation === "div") {
+            return num1 / num2;
+        }
+        else {
+            return "please enter a valid operation (add, subtract, mult, div)";
+        }
+    };
+}
+
+var adder = operationMaker("add" /*"subtract" "mult" "div */);
+var result = adder(2,3);
+
+console.log(result);
