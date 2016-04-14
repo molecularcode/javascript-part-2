@@ -62,5 +62,18 @@ function strAlpha(obj1, obj2) {
   return 0;
 }
 
-console.log('Names sorted by string length (shortest to longest): ', (objArray).sort(strLength));
-console.log('Emails sorted alphabetically: ', objArray.sort(strAlpha));
+//console.log('Names sorted by string length (shortest to longest): ', (objArray).sort(strLength));
+//console.log('Emails sorted alphabetically: ', objArray.sort(strAlpha));
+
+
+// 3. Create a function that can be used with Array.prototype.map. This function should take a number and return its square. Then, use this function with map on an array of numbers to check the result.
+
+function square(numArray) {
+    var squared = numArray.map(function(num) {
+       return num * num; 
+    });
+    return squared;
+}
+
+var numbers = [1,2,3,4,5,6,7,8,9];
+console.log(square(numbers));
