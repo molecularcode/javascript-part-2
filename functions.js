@@ -76,4 +76,28 @@ function square(numArray) {
 }
 
 var numbers = [1,2,3,4,5,6,7,8,9];
-console.log(square(numbers));
+//console.log(square(numbers));
+
+
+// 4. Create a function that can be used with Array.prototype.map. This function should be able to take an object and square its “num” property. Then, use this function with map on an array of objects each containing a “num” property.
+
+var obj11 = {
+    num: 12
+};
+var obj12 = {
+    num: 5
+};
+var obj13 = {
+    num: 3
+};
+
+var numObjArray = [obj11, obj12, obj13];
+
+function numSquare(numArray) {
+    var numSquared = numArray.map(function(num) {
+       return num.num * num.num; 
+    });
+    return numSquared;
+}
+
+console.log(numSquare(numObjArray));
