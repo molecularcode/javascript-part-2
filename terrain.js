@@ -41,9 +41,17 @@ Tile.prototype = {
 };
 
 var map = [];
+var row = [];
 
-var tile1 = new Tile(1, 1);
-//console.log(tile1);
+// build each row(array) but populating it with 20 Tiles
+function buildMap() {
+    for(var i=0; i<=20; i++) {
+        for(var j=0; j<=20; j++) {
+           row.push(new Tile(i,j));
+        }
+        map.push(row);
+    }
+    return map;
+}
 
-map.push(tile1);
-console.log(map);
+console.log(buildMap());
