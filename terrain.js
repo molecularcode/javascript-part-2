@@ -8,9 +8,9 @@ var condition = [burning, normal, frozen];
 function Tile(x, y) {
     this.x = x;
     this.y = y;
-    this.height = Math.floor(Math.random() * 3);
-    this.type = type[Math.floor(Math.random() * type.length) + 1];
-    this.condition = condition[Math.floor(Math.random() * type.length) + 1];
+    this.height = Math.floor(Math.random() * 4);
+    this.type = type[Math.floor(Math.random() * type.length)];
+    this.condition = condition[Math.floor(Math.random() * type.length) ];
 }
 
 Tile.prototype = {
@@ -40,12 +40,11 @@ Tile.prototype = {
     },
 };
 
-var map = [];
-var row = [];
-
 // build each row(array) but populating it with 20 Tiles
 function buildMap() {
+    var map = [];
     for(var i=0; i<=20; i++) {
+        var row = [];
         for(var j=0; j<=20; j++) {
            row.push(new Tile(i,j));
         }
@@ -54,4 +53,24 @@ function buildMap() {
     return map;
 }
 
-console.log(buildMap());
+//console.log(buildMap());
+
+var map = buildMap();
+    
+// output map as Tile.height
+function buildMapHeight() {
+    var mapHeight =[];
+    for(var i=0; i<=20; i++) {
+        var row = [];
+        for(var j=0; j<=20; j++) {
+           row.push(map[i][j].height);
+        }
+        mapHeight.push(row);
+    }
+    return mapHeight;
+}
+
+console.log(buildMapHeight());
+
+
+// Play game
